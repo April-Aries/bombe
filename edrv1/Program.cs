@@ -12,7 +12,7 @@ namespace EDRPOC
 {
     internal class Program
     {
-        const string SECRET = "00000000000000000000000000000000";
+        const string SECRET = "2Fvw1LvEfaCIwJ8sQhiHFPR4krnXCzKM";
 
         // Dictionary to store process ID to executable filename mapping
         private static Dictionary<int, string> processIdToExeName = new Dictionary<int, string>();
