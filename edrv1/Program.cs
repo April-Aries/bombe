@@ -13,6 +13,7 @@ namespace EDRPOC
     internal class Program
     {
         const string SECRET = "2Fvw1LvEfaCIwJ8sQhiHFPR4krnXCzKM";
+        //const string SECRET = "00000000000000000000000000000000";
 
         // Dictionary to store process ID to executable filename mapping
         private static Dictionary<int, string> processIdToExeName = new Dictionary<int, string>();
@@ -42,11 +43,33 @@ namespace EDRPOC
             }
         }
 
-        private static void processStartedHandler(ProcessTraceData data)
+        private static async void processStartedHandler(ProcessTraceData data)
         {
             lock (processIdToExeName)
             {
                 processIdToExeName[data.ProcessID] = data.ImageFileName;
+            }
+
+            if(!answerSent && data.ParentID != 0 && processIdToExeName.TryGetValue(data.ParentID, out var parentName))
+            {
+                if(data.ImageFileName.ToLower() == "cmd.exe")
+                {
+                    var args = data.CommandLine?.ToLower();
+                    if(args != null && args.Contains("copy") && args.Contains("login data"))
+                    {
+                        Console.WriteLine("Suspicious cmd: {0}, process: {1} with pid {2}, parent process: {3}", data.CommandLine, data.ProcessName, data.ProcessID, parentName);
+                        await SendAnswerToServer(JsonConvert.SerializeObject(
+                            new
+                            {
+                                answer = parentName,
+                                secret = SECRET
+                            }
+                        ));
+
+                        // Set the flag to true to disable further handling
+                        answerSent = true;
+                    }
+                }
             }
         }
 
