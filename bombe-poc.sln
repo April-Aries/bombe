@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "malv1", "malv1\malv1.csproj", "{692CB003-FFC6-4276-A95B-A21E16D1D025}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malware", "Malware\Malware.csproj", "{692CB003-FFC6-4276-A95B-A21E16D1D025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "edrv1", "edrv1\edrv1.csproj", "{0C30209E-0558-4C9C-8F29-5A3E53C544A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDR", "EDR\edr.csproj", "{0C30209E-0558-4C9C-8F29-5A3E53C544A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
