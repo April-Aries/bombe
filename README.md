@@ -10,13 +10,13 @@
 
 # 編譯
 
-> 如果想要同時編譯 malware 與 EDR，請再命令提示字元 (cmd) 輸入以下指令
+> 如果想要同時編譯 malware 與 EDR，請在命令提示字元 (cmd) 輸入以下指令
 ```bash
 cd /PATH/TO/BOMBE/PROJECT/FOLDER
 dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
 ```
 
-> 如果想要僅編譯 malware 或 EDR 其中一項，請再命令提示字元 (cmd) 輸入以下指令
+> 如果想要僅編譯 malware 或 EDR 其中一項，請在命令提示字元 (cmd) 輸入以下指令
 ```bash
 cd /PATH/TO/BOMBE/PROJECT/MALWARE/OR/EDR/FOLDER
 dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
